@@ -7,6 +7,10 @@ nav {
   left: 0;
   width: 100%;
   z-index: 999;
+
+  align-items: center;
+  justify-content: space-evenly;
+  display: flex;
 }
 
 nav ul {
@@ -35,6 +39,8 @@ nav ul li a {
   color: #000;
   text-decoration: none;
   transition: color 0.3s ease;
+
+  padding: 10px;
 }
 
 nav ul li a:hover {
@@ -44,4 +50,14 @@ nav ul li a:hover {
 nav ul li a.active {
   color: #ff0000;
   font-weight: bold;
+}
+.center_Image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center_Image img {
+  width: 60%;
+  height: auto;
 }
