@@ -1,0 +1,47 @@
+/* Some basic styling for the navigation menu */
+nav {
+  background-color: #f1f1f1;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+/* Styling for the sections */
+section {
+  margin-top: 60px; /* Adjust margin-top to make space for the fixed navigation */
+  margin-bottom: 50px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+/* Navigation menu effects */
+nav ul li a {
+  color: #000;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ff0000;
+}
+
+nav ul li a.active {
+  color: #ff0000;
+  font-weight: bold;
+}
