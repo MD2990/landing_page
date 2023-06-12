@@ -15,7 +15,7 @@ nav {
 
 nav ul {
   list-style-type: none;
-  margin: 0;
+  margin: 2;
   padding: 0;
 }
 
@@ -39,17 +39,20 @@ nav ul li a {
   color: #000;
   text-decoration: none;
   transition: color 0.3s ease;
-
   padding: 10px;
 }
 
 nav ul li a:hover {
-  color: #ff0000;
+  color: #0077ff;
+  border-bottom: solid 2px #0077ff;
+
+
 }
 
 nav ul li a.active {
-  color: #ff0000;
+  color: #0077ff;
   font-weight: bold;
+  border-bottom: solid 2px #0077ff;
 }
 .center_Image {
   display: flex;
