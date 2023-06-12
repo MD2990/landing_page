@@ -1,0 +1,51 @@
+.cards {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.cards .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  color: rgb(243, 118, 118);
+  cursor: pointer;
+  transition: 400ms;
+  max-width: 25%;
+}
+
+.cards .card p.tip {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.cards .card p.second-text {
+  font-size: 0.8em;
+}
+
+.cards .card:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.cards:hover > .card:not(:hover) {
+  filter: blur(10px);
+  transform: scale(0.9, 0.9);
+}
+
+/*
+ media queries
+ */
+
+@media screen and (max-width: 600px) {
+  .cards {
+    flex-direction: column;
+    height: auto;
+  }
+  .cards .card {
+    margin: 10px 0;
+  }
+}

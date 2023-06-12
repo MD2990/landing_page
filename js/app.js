@@ -1,11 +1,11 @@
 const navBar = document.querySelector("nav");
-
 addSections();
 
 // Update the active section based on scroll position
 window.addEventListener("scroll", function () {
   const sections = document.querySelectorAll("section");
   const navItems = document.querySelectorAll("nav ul li a");
+
   let currentSectionIndex = 0;
   let minDistance = Infinity;
 
@@ -26,21 +26,28 @@ window.addEventListener("scroll", function () {
       navItem.classList.remove("active");
     }
   });
-
-  // Hide the navbar if the user is not scrolling
-  if (window.scrollY === 0) {
-    navBar.style.display = "none";
-  } else {
-    navBar.style.display = "flex";
-  }
 });
 
 // selects all the links in the nav bar and stores them in an array called navLinks
+
 const navLinks = document.querySelectorAll("nav ul li a");
 
+function scrollToSection(event) {
+  event.preventDefault();
 
+  const sectionId = this.getAttribute("href");
+  const section = document.querySelector(sectionId);
 
-// Iterate through the links and add an event listener
+  if (section) {
+    const sectionOffset = section.offsetTop;
+
+    window.scrollTo({
+      top: sectionOffset,
+      behavior: "smooth",
+    });
+  }
+}
+
 navLinks.forEach(function (navLink) {
   navLink.addEventListener("click", scrollToSection);
 });
@@ -87,29 +94,42 @@ function addSections() {
 
   // loop through the data array and create a section for each object
   data.forEach(function (item) {
-    const section4 = document.createElement("section");
-    section4.id = item.id;
-    section4.innerHTML = `
-        <h2>
-        
-        ${item.title}
-        </h2>
-        <p>
-        ${item.content}
-        </p>
-        <div class="center_Image">
-          <img src=
-          ${item.image}
-          
-           />
-        </div>
-      `;
-    document.body.appendChild(section4);
-    // add it to nav  menu
     const nav = document.querySelector("nav ul");
     const navItem = document.createElement("li");
     navItem.innerHTML = `<a href="#${item.id}">${item.title}</a>`;
     nav.appendChild(navItem);
+    const section = document.createElement("section");
+    section.id = item.id;
+    section.innerHTML = `
+    <div class="cards">
+    <div class="card red">
+    <img src=${item.image} alt="image" />
+    <p class="tip">Hover Me  and my color will change 
+    
+    </p>
+    <p class="second-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+    m ipsum dolor sit amet consectetur adipisicing elit. Quisquamm ipsum dolor sit amet consectetur adipisicing 
+    elit. Quisquamm ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+    
+    </p>
+    
+    
+    
+  
+          
+           
+
+    </div>
+
+  
+
+</div>
+    
+      `;
+    // add class to section
+
+    document.body.appendChild(section);
+    // add it to nav  menu
 
     //
   });
