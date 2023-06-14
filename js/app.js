@@ -57,31 +57,31 @@ function addSections() {
     {
       title: "Section 1",
       content: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam`,
-      image: "/images/img1.jpg",
+      image: "/static/images/img1.jpg",
       id: "section1",
     },
     {
       title: "Section 2",
       content: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam`,
-      image: "/images/img2.jpg",
+      image: "/static/images/img2.jpg",
       id: "section2",
     },
     {
       title: "Section 3",
       content: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam`,
-      image: "/images/img3.jpg",
+      image: "/static/images/img3.jpg",
       id: "section3",
     },
     {
       title: "Section 4",
       content: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam`,
-      image: "/images/img4.jpg",
+      image: "/static/images/img4.jpg",
       id: "section4",
     },
     {
       title: "Section 5",
       content: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam`,
-      image: "/images/img5.jpg",
+      image: "/static/images/img5.jpg",
       id: "section5",
     },
   ];

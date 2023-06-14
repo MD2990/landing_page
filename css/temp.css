@@ -1,0 +1,54 @@
+#navbar {
+  display: none;
+  background: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+#navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#navbar ul li {
+  display: block; /* Update to "block" to make menu items display as columns on small screens */
+  margin-bottom: 10px; /* Add some margin between menu items */
+}
+
+#navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#menu-toggler {
+  display: none; /* Initially hide the menu toggler */
+}
+
+#menu-toggler.show {
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px;
+  background: #333;
+  color: #fff;
+}
+
+#menu-toggler.show .menu-toggler-bar {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin-bottom: 4px;
+  background: #fff;
+}
+
+#menu-toggler.show.close .menu-toggler-bar:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+#menu-toggler.show.close .menu-toggler-bar:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-toggler.show.close .menu-toggler-bar:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
