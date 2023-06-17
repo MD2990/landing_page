@@ -1,42 +1,48 @@
-const navBar = document.querySelector("nav");
-addSections();
+let navBar;
+let navLinks;
+const root = document.getElementById("root");
 
-// Update the active section based on scroll position
-window.addEventListener("scroll", function () {
-  const sections = document.querySelectorAll("section");
-  const navItems = document.querySelectorAll("nav ul li a");
-
-  let currentSectionIndex = 0;
-  let minDistance = Infinity;
-
-  sections.forEach(function (section, index) {
-    const rect = section.getBoundingClientRect();
-    const distance = Math.abs(rect.top);
-
-    if (distance < minDistance) {
-      minDistance = distance;
-      currentSectionIndex = index;
-    }
-  });
-
-  navItems.forEach(function (navItem, index) {
-    if (index === currentSectionIndex) {
-      navItem.classList.add("active");
-    } else {
-      navItem.classList.remove("active");
-    }
-  });
+document.addEventListener("DOMContentLoaded", function () {
+  navBar = root.querySelector("nav");
+  addSections();
+  scroll();
+  navLinks = root.querySelectorAll("nav ul li a");
+  attachClickEvent(); // Attach the click event listener here
 });
 
-// selects all the links in the nav bar and stores them in an array called navLinks
+function scroll() {
+  window.addEventListener("scroll", function () {
+    const sections = root.querySelectorAll("section");
+    const navItems = root.querySelectorAll("nav ul li a");
 
-const navLinks = document.querySelectorAll("nav ul li a");
+    let currentSectionIndex = 0;
+    let minDistance = Infinity;
 
+    sections.forEach(function (section, index) {
+      const rect = section.getBoundingClientRect();
+      const distance = Math.abs(rect.top);
+
+      if (distance < minDistance) {
+        minDistance = distance;
+        currentSectionIndex = index;
+      }
+    });
+
+    navItems.forEach(function (navItem, index) {
+      if (index === currentSectionIndex) {
+        navItem.classList.add("active");
+      } else {
+        navItem.classList.remove("active");
+        navItem.classList.add("inactive");
+      }
+    });
+  });
+}
 function scrollToSection(event) {
   event.preventDefault();
 
   const sectionId = this.getAttribute("href");
-  const section = document.querySelector(sectionId);
+  const section = root.querySelector(sectionId);
 
   if (section) {
     const sectionOffset = section.offsetTop;
@@ -48,9 +54,11 @@ function scrollToSection(event) {
   }
 }
 
-navLinks.forEach(function (navLink) {
-  navLink.addEventListener("click", scrollToSection);
-});
+function attachClickEvent() {
+  navLinks.forEach(function (navLink) {
+    navLink.addEventListener("click", scrollToSection);
+  });
+}
 
 function addSections() {
   const data = [
@@ -81,7 +89,7 @@ function addSections() {
     {
       title: "Section 5",
       content: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam`,
-      image: "/static/images/img5.jpg",
+      image: "/static/images/img1.jpg",
       id: "section5",
     },
   ];
@@ -90,47 +98,53 @@ function addSections() {
   const nav = document.createElement("nav");
   const ul = document.createElement("ul");
   nav.appendChild(ul);
-  document.body.appendChild(nav);
+  const div = document.createElement("div");
+  root.appendChild(nav);
 
   // loop through the data array and create a section for each object
   data.forEach(function (item) {
+    //create the navigation bar
     const nav = document.querySelector("nav ul");
     const navItem = document.createElement("li");
-    navItem.innerHTML = `<a href="#${item.id}">${item.title}</a>`;
+    const link = document.createElement("a");
+    link.href = `#${item.id}`;
+    link.textContent = item.title;
+    navItem.appendChild(link);
     nav.appendChild(navItem);
+
+    //create the section
     const section = document.createElement("section");
     section.id = item.id;
-    section.innerHTML = `
-    <div class="cards">
-    <div class="card red">
-    <img src=${item.image} alt="image" />
-    <p class="tip">Hover Me  and my color will change 
-    
-    </p>
-    <p class="second-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-    m ipsum dolor sit amet consectetur adipisicing elit. Quisquamm ipsum dolor sit amet consectetur adipisicing 
-    elit. Quisquamm ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-    
-    </p>
-    
-    
-    
-  
-          
-           
 
-    </div>
+    //create the card
+    const divCards = document.createElement("div");
+    divCards.className = "cards";
+    const divCard = document.createElement("div");
+    divCard.className = "card red";
 
-  
+    //add the image
+    const image = document.createElement("img");
+    image.src = item.image;
+    image.alt = "image";
 
-</div>
-    
-      `;
-    // add class to section
+    //add the text
+    const mainText = document.createElement("h1");
+    mainText.className = "tip";
+    mainText.textContent = "Hover Me and my color will change";
+    const secondText = document.createElement("p");
+    secondText.className = "second-text";
+    secondText.textContent =
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit.\
+       Quisquam m ipsum dolor sit amet consectetur adipisicing elit.\
+        Quisquamm ipsum dolor sit amet consectetur adipisicing elit.\
+         Quisquamm ipsum dolor sit amet consectetur adipisicing elit. Quisquam";
 
-    document.body.appendChild(section);
-    // add it to nav  menu
-
-    //
+    //put it all together
+    divCard.appendChild(image);
+    divCard.appendChild(mainText);
+    divCard.appendChild(secondText);
+    divCards.appendChild(divCard);
+    section.appendChild(divCards);
+    root.appendChild(section);
   });
 }

@@ -1,4 +1,4 @@
-/* Some basic styling for the navigation menu */
+/* styling for the navigation menu */
 nav {
   background-color: #f1f1f1;
   padding: 10px;
@@ -23,8 +23,6 @@ nav ul li {
   margin-right: 10px;
 }
 
-
-
 h2 {
   margin-top: 0;
 }
@@ -37,25 +35,21 @@ nav ul li a {
   padding: 0.5em 0 0 0.5em;
 }
 
-nav ul li a:hover {
+/* nav ul li a:hover {
   color: #0077ff;
 }
-
+ */
 nav ul li a.active {
   color: #0077ff;
   font-weight: bold;
   border-bottom: solid 2px #0077ff;
 }
+
 .center_Image {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 5px;
-}
-
-.center_Image img {
-  width: 100%;
-  height: auto;
 }
 
 /* media queries */
@@ -65,19 +59,50 @@ nav ul li a.active {
     display: grid;
     margin: 1px;
     padding: 0;
+    list-style: none;
   }
+
+  nav ul li a.active {
+    border-radius: 20px;
+    border: none;
+    background-color: #bac9dc;
+    color: #5b5656;
+  }
+
   nav {
     flex-direction: column;
     align-items: flex-start;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 5px;
   }
+
+  nav ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+
+    font-weight: bold;
+  }
+
   .center_Image {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 5px;
   }
-  .center_Image img {
-    width: 10%;
+  img {
+    width: 100%;
     height: auto;
   }
+}
+
+#root {
+  margin: 0;
+  padding: 0;
 }
