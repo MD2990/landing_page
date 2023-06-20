@@ -1,55 +1,63 @@
-.cards {
+@import url("/css/media_queries.css");
+
+.main-card {
   display: flex;
-  gap: 15px;
+  gap: 1px;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  margin-bottom: 2%;
+  padding: 1%;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgb(156, 151, 151);
+  min-height: 100vmin;
+  
+
+
+  
 }
 
-.cards .card {
+.sub-card {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  color: rgb(243, 118, 118);
-  cursor: pointer;
   transition: 400ms;
-  max-width: 25%;
+  max-width: 45%;
 }
 
-.cards .card p.tip {
-  font-size: 1.5em;
-  font-weight: 700;
+.text {
+  font-size: 2.5em;
+  font-weight: 800;
+  margin-bottom: -2%;
+  color: rgb(226, 167, 177);
 }
 
-.cards .card p.second-text {
-  font-size: 0.8em;
+.second-text {
+  font-size: 1.2em;
+  font-weight: 400;
+  color: rgb(137, 131, 139);
+  text-align: left;
+  padding: 1%;
 }
 
-.cards .card:hover {
+img:hover {
+  transform: scale(0.8, 0.8);
+  filter: blur(0);
+  transition: 200ms ease-in;
+  padding: 0;
+  
+}
+
+img:not(:hover) {
   transform: scale(1.1, 1.1);
+  filter: blur(3px);
+  transition: 500ms ease-in-out;
 }
 
-.cards:hover > .card:not(:hover) {
-  filter: blur(2px);
-  transform: scale(0.9, 0.9);
+img {
+  width: 100%;
+  height: auto;
+  padding: 8% 0 8% 0;
+  
 }
-
-/*
- media queries
- */
-
-@media screen and (max-width: 600px) {
-  .cards {
-    flex-direction: column;
-    height: auto;
-  }
-  .cards .card {
-    margin: 10px 0;
-  }
-}
-/* 
-.inactive {
- background-color: black;
-} */

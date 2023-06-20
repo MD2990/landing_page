@@ -1,3 +1,6 @@
+@import url('/css/media_queries.css');
+@import url('/css/card.css');
+
 /* styling for the navigation menu */
 nav {
   background-color: #f1f1f1;
@@ -6,10 +9,11 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 1;
   align-items: center;
   justify-content: space-evenly;
   display: flex;
+
 }
 
 nav ul {
@@ -21,6 +25,7 @@ nav ul {
 nav ul li {
   display: inline-block;
   margin-right: 10px;
+  padding-bottom: 1%;
 }
 
 h2 {
@@ -39,68 +44,15 @@ nav ul li a {
   color: #0077ff;
 }
  */
-nav ul li a.active {
+nav ul li a.active  {
   color: #0077ff;
   font-weight: bold;
   border-bottom: solid 2px #0077ff;
 }
 
-.center_Image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-}
 
-/* media queries */
 
-@media screen and (max-width: 600px) {
-  nav ul li {
-    display: grid;
-    margin: 1px;
-    padding: 0;
-    list-style: none;
-  }
 
-  nav ul li a.active {
-    border-radius: 20px;
-    border: none;
-    background-color: #bac9dc;
-    color: #5b5656;
-  }
-
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-    background-color: transparent;
-    padding: 10px;
-    border-radius: 5px;
-  }
-
-  nav ul {
-    margin: 0;
-    padding: 0;
-  }
-
-  nav ul li a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-
-    font-weight: bold;
-  }
-
-  .center_Image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-  }
-  img {
-    width: 100%;
-    height: auto;
-  }
-}
 
 #root {
   margin: 0;

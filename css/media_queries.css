@@ -1,0 +1,56 @@
+@media screen and (max-width: 600px) {
+  h1.text {
+    font-size: 1.5em;
+	text-align: left;
+  }
+  p.second-text {
+	font-size: 1.0em;
+	font-weight: 300;
+  }
+
+  nav ul li {
+    display: grid;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul li a.active {
+    border-radius: 20px;
+    border: none;
+    background-color: #bac9dc;
+    color: #5b5656;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  nav ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .second-text {
+    padding: 2%;
+  }
+
+  .main-card {
+    min-height: 250vmin;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .main-card {
+    min-height: 200vmin;
+  }
+}
