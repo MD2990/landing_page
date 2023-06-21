@@ -5,6 +5,7 @@ const root = document.getElementById("root");
 document.addEventListener("DOMContentLoaded", function () {
   navBar = root.querySelector("nav");
   addSections();
+ 
   scroll();
   navLinks = root.querySelectorAll("nav ul li a");
   attachClickEvent(); // Attach the click event listener here
@@ -29,12 +30,9 @@ function scroll() {
     });
 
     navItems.forEach(function (navItem, index) {
-      if (index === currentSectionIndex) {
-        navItem.classList.add("active");
-      } else {
-        navItem.classList.remove("active");
-        navItem.classList.add("inactive");
-      }
+      index === currentSectionIndex
+        ? navItem.classList.add("active")
+        : navItem.classList.remove("active");
     });
   });
 }
@@ -109,12 +107,13 @@ function addSections() {
     sub_card.appendChild(mainText);
     sub_card.appendChild(secondText);
     main_card.appendChild(sub_card);
-    section.appendChild(main_card);  
-    
+    section.appendChild(main_card);
+
     mainContainer.appendChild(section);
   });
 
   root.appendChild(mainContainer);
+
 }
 const data = [
   {
@@ -173,3 +172,4 @@ const data = [
     id: "section5",
   },
 ];
+

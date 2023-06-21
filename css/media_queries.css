@@ -1,11 +1,25 @@
+@media screen and (max-width: 900px) {
+  .main-container {
+    padding-top: 7rem;
+  }
+  nav ul li a {
+    font-size: 0.7em;
+    font-weight: 300;
+  }
+}
+
 @media screen and (max-width: 600px) {
+  .main-container {
+    padding-top: 14rem;
+  }
   h1.text {
     font-size: 1.5em;
-	text-align: left;
+    text-align: left;
   }
+
   p.second-text {
-	font-size: 1.0em;
-	font-weight: 300;
+    font-size: 1em;
+    font-weight: 300;
   }
 
   nav ul li {
@@ -18,8 +32,8 @@
   nav ul li a.active {
     border-radius: 20px;
     border: none;
-    background-color: #bac9dc;
-    color: #5b5656;
+    background-color: #f2d7f3fb;
+    color: #f80cdd;
   }
 
   nav {
@@ -39,18 +53,9 @@
     padding: 10px;
     text-decoration: none;
     font-weight: bold;
+    font-size: 0.7em;
   }
   .second-text {
     padding: 2%;
-  }
-
-  .main-card {
-    min-height: 250vmin;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .main-card {
-    min-height: 200vmin;
   }
 }

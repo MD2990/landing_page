@@ -1,9 +1,10 @@
 @import url('/css/media_queries.css');
 @import url('/css/card.css');
+@import url('/css/main-container.css');
 
 /* styling for the navigation menu */
 nav {
-  background-color: #f1f1f1;
+  background-color: #ffffff;
   padding: 10px;
   position: fixed;
   top: 0;
@@ -13,6 +14,8 @@ nav {
   align-items: center;
   justify-content: space-evenly;
   display: flex;
+ 
+
 
 }
 
@@ -20,12 +23,14 @@ nav ul {
   list-style-type: none;
   margin: 2;
   padding: 0;
+  
 }
 
 nav ul li {
   display: inline-block;
   margin-right: 10px;
   padding-bottom: 1%;
+  
 }
 
 h2 {
@@ -34,7 +39,7 @@ h2 {
 
 /* Navigation menu effects */
 nav ul li a {
-  color: #000;
+ color: rgba(144, 8, 31, 0.512);
   text-decoration: none;
   transition: color 0.3s ease;
   padding: 0.5em 0 0 0.5em;
@@ -45,9 +50,10 @@ nav ul li a {
 }
  */
 nav ul li a.active  {
-  color: #0077ff;
+  color: rgb(241, 123, 142);
   font-weight: bold;
-  border-bottom: solid 2px #0077ff;
+  border-bottom: solid 2px pink;
+  font-weight: 900;
 }
 
 

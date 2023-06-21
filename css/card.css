@@ -1,19 +1,16 @@
 @import url("/css/media_queries.css");
 
 .main-card {
-  display: flex;
-  gap: 1px;
+  display: grid;
+  width: fit-content;
+  justify-items: center;
   align-items: center;
-  justify-content: center;
+  grid-template-columns: 1fr;
   margin-bottom: 2%;
   padding: 1%;
   border-radius: 5px;
   box-shadow: 0 0 5px rgb(156, 151, 151);
-  min-height: 100vmin;
-  
-
-
-  
+  min-height: 100vh;
 }
 
 .sub-card {
@@ -22,8 +19,7 @@
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  transition: 400ms;
-  max-width: 45%;
+  max-width: 50%;
 }
 
 .text {
@@ -45,19 +41,18 @@ img:hover {
   transform: scale(0.8, 0.8);
   filter: blur(0);
   transition: 200ms ease-in;
-  padding: 0;
-  
+  transition-delay: 100ms;
 }
 
 img:not(:hover) {
   transform: scale(1.1, 1.1);
   filter: blur(3px);
   transition: 500ms ease-in-out;
+  transition-delay: 500ms;
 }
 
 img {
   width: 100%;
   height: auto;
-  padding: 8% 0 8% 0;
-  
+  padding: -6% 1% 1% 1%;
 }
