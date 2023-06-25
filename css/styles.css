@@ -1,6 +1,6 @@
-@import url('/css/media_queries.css');
-@import url('/css/card.css');
-@import url('/css/main-container.css');
+@import url("/css/media_queries.css");
+@import url("/css/card.css");
+@import url("/css/main-container.css");
 
 /* styling for the navigation menu */
 nav {
@@ -14,23 +14,18 @@ nav {
   align-items: center;
   justify-content: space-evenly;
   display: flex;
- 
-
-
 }
 
 nav ul {
   list-style-type: none;
   margin: 2;
   padding: 0;
-  
 }
 
 nav ul li {
   display: inline-block;
   margin-right: 10px;
   padding-bottom: 1%;
-  
 }
 
 h2 {
@@ -39,7 +34,7 @@ h2 {
 
 /* Navigation menu effects */
 nav ul li a {
- color: rgba(144, 8, 31, 0.512);
+  color: rgba(144, 8, 31, 0.512);
   text-decoration: none;
   transition: color 0.3s ease;
   padding: 0.5em 0 0 0.5em;
@@ -49,18 +44,34 @@ nav ul li a {
   color: #0077ff;
 }
  */
-nav ul li a.active  {
+nav ul li a.active {
   color: rgb(241, 123, 142);
   font-weight: bold;
   border-bottom: solid 2px pink;
   font-weight: 900;
 }
 
-
-
-
-
 #root {
   margin: 0;
   padding: 0;
+}
+
+.top-btn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: rgb(241, 150, 165); /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
+.top-btn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
 }

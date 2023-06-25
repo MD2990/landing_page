@@ -5,10 +5,12 @@ const root = document.getElementById("root");
 document.addEventListener("DOMContentLoaded", function () {
   navBar = root.querySelector("nav");
   addSections();
- 
+
   scroll();
   navLinks = root.querySelectorAll("nav ul li a");
   attachClickEvent(); // Attach the click event listener here
+
+  addToTopBtn();
 });
 
 function scroll() {
@@ -100,7 +102,51 @@ function addSections() {
     mainText.textContent = item.subtitle;
     const secondText = document.createElement("p");
     secondText.className = "second-text";
-    secondText.textContent = item.content;
+
+    let newText;
+    const readMoreButton = document.createElement("button");
+    const showLessButton = document.createElement("button");
+    readMoreButton.textContent = "Read More";
+    showLessButton.textContent = "Show Less";
+
+    // add class to the button
+    readMoreButton.className = "read-btn";
+    showLessButton.className = "read-btn";
+
+    // Add a click event listener to the button
+    readMoreButton.addEventListener("click", function () {
+      // Replace the truncated text with the full text
+      secondText.textContent = item.content;
+      // Remove the button
+      readMoreButton.remove();
+      // Append the Show Less button
+      secondText.appendChild(showLessButton);
+    });
+
+    // Add a click event listener to the show less button
+    showLessButton.addEventListener("click", function () {
+      // Replace the full text with the truncated text
+      secondText.textContent = newText;
+      // Remove the button
+      showLessButton.remove();
+      // Append the Read More button
+      secondText.appendChild(readMoreButton);
+    });
+
+    // Append the button to the element that contains the text
+
+    if (item.content.length > 250) {
+      // substring the content to 250 characters
+      //and add ... at the end if the content is longer than 100 characters long and after the space
+
+      newText = item.content.substring(0, 300).replace(/\s+\S*$/, "") + "...";
+      secondText.textContent = newText;
+      secondText.appendChild(readMoreButton);
+    } else {
+      secondText.textContent = item.content;
+    }
+
+    //add the button to the section
 
     //put it all together
     sub_card.appendChild(image);
@@ -113,8 +159,47 @@ function addSections() {
   });
 
   root.appendChild(mainContainer);
-
 }
+
+// Get the button:
+
+function addToTopBtn() {
+  const rootElement = document.documentElement;
+
+  const topBtn = document.createElement("button");
+  topBtn.textContent = "Top";
+
+  // add class to the button
+  topBtn.className = "top-btn";
+
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function () {
+    scrollFunction();
+  };
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    rootElement.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
+
+  function scrollFunction() {
+    const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
+
+    if (rootElement.scrollTop / scrollTotal > 0.50) {
+      topBtn.style.display = "block";
+    } else {
+      topBtn.style.display = "none";
+    }
+  }
+
+  topBtn.addEventListener("click", topFunction);
+
+  document.body.appendChild(topBtn);
+}
+
 const data = [
   {
     title: "Component-Based Architecture",
@@ -122,7 +207,13 @@ const data = [
     content: `At the heart of React.js lies its component-based architecture. React allows you to build reusable UI components,\
      which are self-contained and can be composed to form more complex interfaces. Components encapsulate their own logic and state,\
       making it easier to manage and maintain large-scale applications. By breaking the UI into smaller, reusable components\
-     React promotes modularity and reusability, enhancing development efficiency.`,
+     React promotes modularity and reusability, making it possible to build complex UIs with ease.
+     The component-based architecture also facilitates collaboration between teams of developers and designers,\
+      as it allows them to work on different parts of the UI without disrupting each other.
+      React's component-based architecture also makes it easy to write automated tests for your application.\
+        React components are highly modular and isolated, which makes them easy to test in isolation.\
+     
+     `,
     image: "/static/images/img1.jpg",
     id: "section1",
   },
@@ -132,7 +223,13 @@ const data = [
     content: `React utilizes a virtual Document Object Model (DOM) to optimize rendering performance.\
      The virtual DOM is a lightweight copy of the actual DOM, which React uses to track changes and efficiently update only the necessary parts of the UI.\
     When the state of a component changes, React calculates the difference between the current and new virtual DOM representations, and then applies the minimum required updates to the actual DOM.\
-     This approach minimizes costly direct manipulations of the DOM and contributes to React's impressive performance.`,
+     This approach minimizes costly direct manipulations of the DOM and contributes to React's impressive performance.\
+      React's virtual DOM also enables a programming paradigm called declarative programming.\
+        In declarative programming, you simply declare the desired output, and the underlying engine takes care of all the details.\
+          React uses JSX, a declarative JavaScript syntax extension, to describe what the UI should look like.\
+            React then automatically updates and renders the components when the state changes.\
+     
+     `,
     image: "/static/images/img2.jpg",
     id: "section2",
   },
@@ -143,7 +240,12 @@ const data = [
     JSX combines the power of JavaScript with the expressiveness of HTML,\
      enabling you to define the structure and appearance of React components in a declarative and intuitive manner.\
      With JSX, you can seamlessly integrate JavaScript expressions, iterate over arrays,\
-     and conditionally render elements. Babel, a JavaScript compiler, is commonly used to transform JSX into plain JavaScript that browsers can understand.`,
+     and conditionally render elements. Babel, a JavaScript compiler, is commonly used to transform JSX into plain JavaScript that browsers can understand.\
+     It's important to note that JSX is not required to use React.\
+      However, JSX makes it easier to write React applications, and is therefore the recommended approach.\
+      This new syntax may seem strange at first, but you'll quickly get used to it.\
+      In fact, JSX is so popular that other frameworks, such as Vue.js, have adopted it as well.\
+     `,
     image: "/static/images/img3.jpg",
     id: "section3",
   },
@@ -168,8 +270,7 @@ const data = [
     enables the development of native mobile applications for iOS and Android platforms. Additionally,\
     tools like Create React App, Next.js, and TypeScript enhance the development experience by providing scaffolding, server-side rendering,\
     and type safety, respectively.`,
-    image: "/static/images/img1.jpg",
+    image: "/static/images/img5.jpg",
     id: "section5",
   },
 ];
-

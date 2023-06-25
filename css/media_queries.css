@@ -58,4 +58,10 @@
   .second-text {
     padding: 2%;
   }
+
+  .second-text > button {
+    padding: 3px;
+    font-size: 0.6em;
+    font-weight: 200;
+  }
 }
