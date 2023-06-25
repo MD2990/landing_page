@@ -1,7 +1,9 @@
+// Global variables
 let navBar;
 let navLinks;
 const root = document.getElementById("root");
 
+// add sections and navigation bar to the page when the DOM is loaded
 document.addEventListener("DOMContentLoaded", function () {
   navBar = root.querySelector("nav");
   addSections();
@@ -13,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   addToTopBtn();
 });
 
+// When the user scrolls the page, highlight the section that is currently scrolled into view.
 function scroll() {
   window.addEventListener("scroll", function () {
     const sections = root.querySelectorAll("section");
@@ -38,6 +41,8 @@ function scroll() {
     });
   });
 }
+
+// When the user clicks on a navigation item, the document should scroll to the top of the corresponding section.
 function scrollToSection(event) {
   event.preventDefault();
 
@@ -54,12 +59,14 @@ function scrollToSection(event) {
   }
 }
 
+// Attach the click event listener here
 function attachClickEvent() {
   navLinks.forEach(function (navLink) {
     navLink.addEventListener("click", scrollToSection);
   });
 }
 
+// Create a function that adds all the sections to the page.
 function addSections() {
   // create a nav menu and add ul  , li and href
   const nav = document.createElement("nav");
@@ -137,7 +144,6 @@ function addSections() {
 
     if (item.content.length > 250) {
       // substring the content to 250 characters
-      //and add ... at the end if the content is longer than 100 characters long and after the space
 
       newText = item.content.substring(0, 300).replace(/\s+\S*$/, "") + "...";
       secondText.textContent = newText;
@@ -146,23 +152,19 @@ function addSections() {
       secondText.textContent = item.content;
     }
 
-    //add the button to the section
-
     //put it all together
     sub_card.appendChild(image);
     sub_card.appendChild(mainText);
     sub_card.appendChild(secondText);
     main_card.appendChild(sub_card);
     section.appendChild(main_card);
-
     mainContainer.appendChild(section);
   });
 
   root.appendChild(mainContainer);
 }
 
-// Get the button:
-
+// At the bottom of the page there should be a button that says “Top”.
 function addToTopBtn() {
   const rootElement = document.documentElement;
 
@@ -188,7 +190,7 @@ function addToTopBtn() {
   function scrollFunction() {
     const scrollTotal = rootElement.scrollHeight - rootElement.clientHeight;
 
-    if (rootElement.scrollTop / scrollTotal > 0.50) {
+    if (rootElement.scrollTop / scrollTotal > 0.5) {
       topBtn.style.display = "block";
     } else {
       topBtn.style.display = "none";
@@ -200,6 +202,7 @@ function addToTopBtn() {
   document.body.appendChild(topBtn);
 }
 
+// The Data which will be used to create the sections
 const data = [
   {
     title: "Component-Based Architecture",
