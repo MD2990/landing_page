@@ -217,7 +217,7 @@ const data = [
         React components are highly modular and isolated, which makes them easy to test in isolation.\
      
      `,
-    image: "/static/images/img1.jpg",
+    image: "static/images/img1.jpg",
     id: "section1",
   },
   {
@@ -233,7 +233,7 @@ const data = [
             React then automatically updates and renders the components when the state changes.\
      
      `,
-    image: "/static/images/img2.jpg",
+    image: "static/images/img2.jpg",
     id: "section2",
   },
   {
@@ -249,7 +249,7 @@ const data = [
       This new syntax may seem strange at first, but you'll quickly get used to it.\
       In fact, JSX is so popular that other frameworks, such as Vue.js, have adopted it as well.\
      `,
-    image: "/static/images/img3.jpg",
+    image: "static/images/img3.jpg",
     id: "section3",
   },
   {
@@ -260,7 +260,7 @@ const data = [
     By using state and props, React facilitates the flow of data and enables the creation of interactive and dynamic UIs.\
     When the state or props of a component change,\
     React efficiently re-renders the component and its children, ensuring that the UI stays in sync with the underlying data.`,
-    image: "/static/images/img4.jpg",
+    image: "static/images/img4.jpg",
     id: "section4",
   },
   {
@@ -273,7 +273,7 @@ const data = [
     enables the development of native mobile applications for iOS and Android platforms. Additionally,\
     tools like Create React App, Next.js, and TypeScript enhance the development experience by providing scaffolding, server-side rendering,\
     and type safety, respectively.`,
-    image: "/static/images/img5.jpg",
+    image: "static/images/img5.jpg",
     id: "section5",
   },
 ];
